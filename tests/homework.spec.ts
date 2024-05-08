@@ -6,16 +6,18 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Registration complete', () => {
-  test('Password do not match', async ({ page }) => {
-    await page.locator('#signupPassword').fill('test');
+  test('Registration', async ({ page }) => {
+    let emailCounter = 4;
+    const email = `ivanovivan+aqa${emailCounter++}@gmail.com`;
+    await page.locator('#signupName').fill('test');
     await page.locator('#signupLastName').fill('test');
-    await page.locator('#signupEmail').fill('ivanovivan+aqa01@gmail.com');
+    await page.locator('#signupEmail').fill(email);
     await page.locator('#signupPassword').fill('Qwerty358');
     await page.locator('#signupRepeatPassword').fill('Qwerty358');
-    await page.locator('#signupRepeatPassword').blur();
-    const registerButton = page.getByText('Register');
-    await expect(page.click(registerButton));
-    
+    await page.getByText('Register').click();
+    const garage = await page.getByText('Garage');
+    await expect(garage).toBeVisible();
+
   });
 });
 

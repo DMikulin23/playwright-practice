@@ -33,7 +33,9 @@ export class SingUp {
     await this.rePasswordField.fill(rePassword);
   }
 
-  
+  async checkGaragePage() {
+    await expect(this.garage).toHaveText('Garage');
+  }
 
 
 }

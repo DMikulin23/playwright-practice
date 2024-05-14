@@ -15,10 +15,10 @@ test.describe('Registration complete', () => {
 
   test('Registration', async ({ page }) => {
     singUpForm = new SingUp(page);
-    await singUpForm.loginWithCredentials('test', 'test', 'ivanovivan+aqa32@gmail.com', 'Qwerty358', 'Qwerty358');
+    await singUpForm.loginWithCredentials('test', 'test', 'ivanovivan+aqa31@gmail.com', 'Qwerty358', 'Qwerty358');
     await singUpForm.registerButton.click();
     await singUpForm.rePasswordField.blur();
-    await expect(singUpForm.garage).toHaveText('Garage');
+    await singUpForm.checkGaragePage();
   });
 });
 

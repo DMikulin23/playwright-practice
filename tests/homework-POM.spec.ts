@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { SingUp } from '../page-objects/forms/singUp';
+import { Garage } from '../page-objects/pages/garagePage';
 
 
 
@@ -12,13 +13,16 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Registration complete', () => {
   let singUpForm: SingUp;
+  let garagePage: Garage;
 
   test('Registration', async ({ page }) => {
+    garagePage = new Garage(page);
     singUpForm = new SingUp(page);
-    await singUpForm.loginWithCredentials('test', 'test', 'ivanovivan+aqa31@gmail.com', 'Qwerty358', 'Qwerty358');
-    await singUpForm.registerButton.click();
+    await singUpForm.loginWithCredentials('test', 'test', 'ivanovivan+aqa76@gmail.com', 'Qwerty358', 'Qwerty358');
     await singUpForm.rePasswordField.blur();
-    await singUpForm.checkGaragePage();
+    await singUpForm.registerButton.click();
+    
+    await garagePage.checkGaragePage();
   });
 });
 

@@ -9,7 +9,6 @@ export class SingUp {
   readonly passwordField: Locator;
   readonly rePasswordField: Locator;
   readonly registerButton: Locator;
-  readonly garage: Locator;
   readonly errorMassage: Locator;
 
   constructor(page: Page) {
@@ -22,7 +21,6 @@ export class SingUp {
     this.passwordField = page.locator('#signupPassword');
     this.registerButton = page.getByText('Register')
     this.rePasswordField = page.locator('#signupRepeatPassword');
-    this.garage = page.locator('h1');
   }
 
   async loginWithCredentials(name: string, lastName: string, email: string, password: string, rePassword: string) {
@@ -33,9 +31,7 @@ export class SingUp {
     await this.rePasswordField.fill(rePassword);
   }
 
-  async checkGaragePage() {
-    await expect(this.garage).toHaveText('Garage');
-  }
+  
 
 
 }

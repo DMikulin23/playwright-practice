@@ -19,7 +19,7 @@ export class SingUp {
     this.errorMassage = page.locator('.invalid-feedback');
     this.emailField = page.locator('#signupEmail');
     this.passwordField = page.locator('#signupPassword');
-    this.registerButton = page.getByText('Register')
+    this.registerButton = page.getByRole('button', { name: 'Register' })
     this.rePasswordField = page.locator('#signupRepeatPassword');
   }
 

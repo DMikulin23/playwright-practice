@@ -31,7 +31,7 @@ export class SingUp {
     await this.rePasswordField.fill(rePassword);
   }
 
-  
+
 
 
 }
